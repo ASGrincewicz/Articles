@@ -1,19 +1,15 @@
-
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-
 namespace Veganimus
 {
     ///<summary>
     ///@author
     ///Aaron Grincewicz
     ///</summary>
-    
     public class Typing : MonoBehaviour
     {
         [SerializeField] private bool _isAutoPageTurnOn;
@@ -28,7 +24,6 @@ namespace Veganimus
         [Header("Settings")]
         [Multiline(5)]
         [SerializeField] private List<string> _pages = new List<string>();
-        [Multiline(5)]
         [SerializeField] private string _typedText;
         [SerializeField] private float _delayTime;
         [SerializeField] private float _pageDelayTime;
