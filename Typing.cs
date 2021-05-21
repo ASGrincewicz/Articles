@@ -25,18 +25,18 @@ namespace Veganimus
         [SerializeField] private Button _startButton;
         [SerializeField] private Button _nextPageButton;
         [SerializeField] private Button _previousPageButton;
-        [Header("Setting")]
+        [Header("Settings")]
         [Multiline(5)]
         [SerializeField] private List<string> _pages = new List<string>();
         [Multiline(5)]
         [SerializeField] private string _typedText;
         [SerializeField] private float _delayTime;
         [SerializeField] private float _pageDelayTime;
-        private bool _isTyping;
-        private int _index = 0;
+        private bool _isTyping;//Is the 'Typing' coroutine running?
+        private int _index = 0;//Character index in currently assigned string.
         private int _currentPage =0;
-        private int _textLength;
-        private string _textToType;
+        private int _textLength;//Length of text on current page.
+        private string _textToType; //Text from the current page.
         private char _characterToType;
         private WaitForSeconds _characterDelay;
         private WaitForSeconds _pageTurnDelay;
