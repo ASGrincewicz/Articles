@@ -63,33 +63,35 @@ namespace Veganimus
             _setPageDelayInput.onEndEdit.RemoveListener(SetPageDelay);
         }
         private void AutoTurn(bool isOn) => _isAutoPageTurnOn = isOn;
-
+         //Allows user to set the delay between characters.
         private void SetDelay(string newDelay)
         {
             _delayTime = Convert.ToSingle(newDelay);
             _characterDelay = new WaitForSeconds(_delayTime);
         }
+        // Allows user to set the delay between page turns.
         private void SetPageDelay(string newPageDelay)
         {
             _pageDelayTime = Convert.ToSingle(newPageDelay);
             _pageTurnDelay = new WaitForSeconds(_pageDelayTime);
         }
-
+        // This is called when the 'Next Page' button is pressed, so it doesn't interfere with Auto-turn.
         private void UserTurnedNextPage()
         {
             _isAutoPageTurnOn = false;
             _autoTurnToggle.isOn = _isAutoPageTurnOn;
             NextPage();
         }
+        // This is called when the 'Previous Page' button is pressed, so it doesn't interfere with Auto-turn.
         private void UserTurnedPreviousPage()
         {
             _isAutoPageTurnOn = false;
             _autoTurnToggle.isOn = _isAutoPageTurnOn;
             PreviousPage();
         }
-
+        // Called when the 'Start Typing' button is pressed. Could be called another way.
         private void StartTyping() => StartCoroutine(TypeCharacter());
-
+        //Called when current page is done typing if Auto-turn is on, otherwise called by user input.
         private void NextPage()
         {
             if (_currentPage < _pages.Count - 1)
@@ -104,6 +106,7 @@ namespace Veganimus
                 }
             }
         }
+          //Called when current page is done typing if Auto-turn is on, otherwise called by user input.
         private void PreviousPage()
         {
             if (_currentPage != 0)
@@ -118,7 +121,7 @@ namespace Veganimus
                 }
             }
         }
-
+        //This iterates through the characters in the assigned string and displays the characters one by one with a user-assigned delay between.
         private IEnumerator TypeCharacter()
         {
             _isTyping = true;
